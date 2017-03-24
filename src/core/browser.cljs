@@ -1,6 +1,8 @@
 (ns core.browser
   (:require
-    [rum.core :as rum :include-macros true]))
+    [mrum.core :as rum :include-macros true]
+    ;[rum.core :as rum :include-macros true]
+    ))
 
 
 (rum/defc test-component2 []
