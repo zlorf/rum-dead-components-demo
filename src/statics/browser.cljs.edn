@@ -1,0 +1,3 @@
+{:require [core.browser]
+ :init-fns [core.browser/boot]
+ :compiler-options {:asset-path "/statics/browser.out"}}
