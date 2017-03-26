@@ -49,7 +49,8 @@
                     (map (fn [[[_ & arglist] & _body]] (vec arglist)) bodies))]
     `(def ~(vary-meta name update :arglists #(or % `(quote ~arglists)))
        ~@(if doc [doc] [])
-       (~builder (fn ~@render-body) ~mixins ~(str name)))))
+       (mrum.core/lazy-component ~builder (fn ~@render-body) ~mixins ~(str name)))))
+       ;(~builder (fn ~@render-body) ~mixins ~(str name)))))
 
 (defmacro defc
   [& body]
