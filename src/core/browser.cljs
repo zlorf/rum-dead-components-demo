@@ -14,8 +14,9 @@
 (defn some-unused-fn [x]
   "SHOULD NOT BE PRESENT 3 (this one is actually removed by the compiler)")
 
-(defn exclaims [count]
-  (apply str "This SHOULD BE PRESENT" (repeat count "!")))
+(rum/defc exclaims [count]
+  [:span (apply str "This SHOULD BE PRESENT" (repeat count "!"))])
+
 
 (rum/defc used-component []
   [:div "Rum is awesome; " (exclaims 3)])
@@ -27,4 +28,5 @@
 
 (defn boot []
   (enable-console-print!)
+  (println "AND THE CLASS IS... " (meta exclaims))
   (init-mount!))
